@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Favorite Movies</title>
+   <link href="css/Cstyles.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="topnav">
+    <a href="index.html">← Back to Resumé</a>
+    <a href="app.html">Web App</a>
+  </nav>
+
+  <!-- On-page anchor target -->
+  <a name="top"></a>
+
+  <!-- HEADER -->
+  <div id="header">
+    <h1>My Favorite Films</h1>
+    <p class="subtitle">Five movies that stuck with me — and why they matter</p>
+  </div>
+
+  <!-- INTRO -->
+  <div id="intro">
+    <h2>Why Movies?</h2>
+    <p>
+      I love movies. Good storytelling is something I thoroughly enjoy. For me, the thing that makes a movie great is transformative acting,
+      clever writing, good directing, and a memorable score. The films below are some of my favorites; they all have something that stuck
+      with me long after the credits rolled.
+    </p>
+  </div>
+
+  <!-- MOVIES SECTION: ordered list of films, each with unordered list of details -->
+  <div id="content-section">
+    <h2>The Films</h2>
+    <ol>
+      <li>
+        <strong>The Shining (1980)</strong> — Stanley Kubrick
+        <ul>
+          <li>Genre: Psychological Horror</li>
+          <li>Stars Jack Nicholson in one of cinema's most unhinged performances</li>
+          <li>The Overlook Hotel is practically its own character</li>
+          <li>Kubrick's use of the Steadicam changed filmmaking forever</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Good Will Hunting (1997)</strong> — Gus Van Sant
+        <ul>
+          <li>Genre: Drama</li>
+          <li>Written by Matt Damon and Ben Affleck — who also star in it</li>
+          <li>Robin Williams' therapy scenes are some of the best in any film</li>
+          <li>"It's not your fault" hits differently every time</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Marty Supreme (2025)</strong> — Jonah Hill
+        <ul>
+          <li>Genre: Sports Drama</li>
+          <li>Timothée Chalamet plays ping-pong prodigy Marty Reisman</li>
+          <li>Shot on 16mm film for a raw, gritty aesthetic</li>
+          <li>A love letter to obsession and competitive drive</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Interstellar (2014)</strong> — Christopher Nolan
+        <ul>
+          <li>Genre: Sci-Fi / Drama</li>
+          <li>Hans Zimmer's organ-driven score is one of the best ever made</li>
+          <li>The docking scene is pure tension without a single word of dialogue</li>
+          <li>Made me cry in an IMAX theater in front of strangers</li>
+        </ul>
+      </li>
+      <li>
+        <strong>La La Land (2016)</strong> — Damien Chazelle
+        <ul>
+          <li>Genre: Musical Romance</li>
+          <li>Emma Stone and Ryan Gosling have effortless chemistry</li>
+          <li>The opening freeway musical number was filmed in two days</li>
+          <li>The ending is an emotional gut punch disguised as a love story</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h2>What Makes a Great Film?</h2>
+    <p>In my opinion, the best movies share a few traits:</p>
+    <ul>
+      <li>A story that excites emotions</li>
+      <li>At least one scene you can't stop thinking about days later</li>
+      <li>A score or soundtrack that does half the storytelling</li>
+      <li>Characters who feel real, even if the world around them isn't</li>
+    </ul>
+  </div>
+
+  <!-- IMAGE -->
+  <div id="image-section">
+    <h2>The Art of Cinema</h2>
+    <p>Film stills and posters are their own art form — here's one of my favorites:</p>
+    <img
+      src="assets/img/GoodWillHunting.jpg"
+      alt="Classic cinema photograph"
+    />
+    <p class="img-caption">Replace this image with a movie still or poster you love</p>
+  </div>
+
+  <!-- YOUTUBE VIDEO -->
+  <div id="video-section">
+    <h2>Watch: Interstellar Years of Messages scene</h2>
+    <p>
+      This scene is one of my all-time favorites in all of cinema. When I think of Matthew McConaughey I think of this scene.
+    </p>
+    <div class="video-wrapper">
+      <!-- Interstellar docking scene — swap VIDEO_ID for any YouTube ID you prefer -->
+      <iframe
+        src="https://youtu.be/MoLkabPK3YU?si=fdPEMzmBiycrRJ2v"
+        title="Interstellar Years of Messages scene"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- TABLEAU -->
+  <div id="tableau-section">
+    <h2>Data: Box Office Performance</h2>
+    <p>Explore this interactive visualization of how these films and others performed at the box office:</p>
+    <div class='tableauPlaceholder' style='position: relative;'>
+      <noscript>
+        <a href='#'><img alt='Box Office Data' src='https://public.tableau.com/static/images/placeholder.png' style='border: none' /></a>
+      </noscript>
+      <object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='BoxOfficeDashboard/Dashboard1'/>
+        <!-- ↑ Replace with your chosen Tableau Public viz path -->
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' />
+      </object>
+    </div>
+    <script type='text/javascript'>
+      var divElement = document.querySelector('.tableauViz');
+      vizElement = divElement;
+      vizElement.style.width = '100%';
+      vizElement.style.height = '500px';
+      var scriptElement = document.createElement('script');
+      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+  </div>
+
+  <!-- FOOTER -->
+  <div id="footer">
+    <p>"Cinema is a matter of what's in the frame and what's out." — Martin Scorsese</p>
+    <p style="margin-top: 10px;">
+      <a href="#top">↑ Back to top</a> &nbsp;|&nbsp;
+      <a href="app.html">Try my web app →</a>
+    </p>
+  </div>
+
+</body>
+</html>

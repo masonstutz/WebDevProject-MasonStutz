@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Trivia</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0d1b2a;
+      color: #e0e6f0;
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #7eb8f7;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: #a8c4dd;
+      font-size: 0.95rem;
+    }
+
+    #back-link {
+      align-self: flex-start;
+      color: #7eb8f7;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    #back-link:hover { text-decoration: underline; }
+
+    #game-container {
+      background: #12263f;
+      border: 1px solid #2a4060;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 640px;
+      width: 100%;
+    }
+
+    #score-bar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #a8c4dd;
+      margin-bottom: 20px;
+    }
+
+    #score-bar span { font-weight: bold; color: #7eb8f7; }
+
+    #question-number {
+      font-size: 0.85rem;
+      color: #7eb8f7;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    #question-text {
+      font-size: 1.2rem;
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      min-height: 60px;
+    }
+
+    #options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .option-btn {
+      background: #1b2a3b;
+      border: 1px solid #2a4060;
+      border-radius: 8px;
+      color: #c8d8ea;
+      cursor: pointer;
+      font-size: 0.95rem;
+      padding: 14px 12px;
+      text-align: left;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: #22384f;
+      border-color: #7eb8f7;
+      color: #ffffff;
+    }
+
+    .option-btn.correct {
+      background: #143d2e;
+      border-color: #4caf87;
+      color: #4caf87;
+    }
+
+    .option-btn.wrong {
+      background: #3d1414;
+      border-color: #c0504a;
+      color: #c0504a;
+    }
+
+    .option-btn:disabled { cursor: default; }
+
+    #feedback {
+      min-height: 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    #next-btn {
+      display: block;
+      width: 100%;
+      background: #7eb8f7;
+      border: none;
+      border-radius: 8px;
+      color: #0d1b2a;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 14px;
+      transition: background 0.15s;
+    }
+
+    #next-btn:hover { background: #aed0fa; }
+    #next-btn:disabled { background: #2a4060; color: #6a8aaa; cursor: default; }
+
+    #results-screen {
+      display: none;
+      text-align: center;
+    }
+
+    #results-screen h2 {
+      font-size: 1.8rem;
+      color: #7eb8f7;
+      margin-bottom: 12px;
+    }
+
+    #final-score {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin: 16px 0;
+    }
+
+    #result-message {
+      color: #a8c4dd;
+      margin-bottom: 28px;
+      font-size: 1rem;
+    }
+
+    #restart-btn {
+      background: #7eb8f7;
+      border: none;
+      border-radius: 8px;
+      color: #0d1b2a;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 14px 40px;
+    }
+
+    #restart-btn:hover { background: #aed0fa; }
+
+    #progress-bar-wrap {
+      background: #1b2a3b;
+      border-radius: 4px;
+      height: 6px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    #progress-bar {
+      background: #7eb8f7;
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="fromscratch.html" id="back-link">← Back to From Scratch Page</a>
+
+  <header>
+    <h1>🚀 Space Trivia</h1>
+    <p>Test your knowledge of the cosmos. 10 questions. Good luck.</p>
+  </header>
+
+  <div id="game-container">
+
+    <!-- Quiz screen -->
+    <div id="quiz-screen">
+      <div id="score-bar">
+        <div>Score: <span id="current-score">0</span></div>
+        <div>Question <span id="q-counter">1</span> of 10</div>
+      </div>
+      <div id="progress-bar-wrap">
+        <div id="progress-bar" style="width: 10%;"></div>
+      </div>
+      <div id="question-number">Question 1</div>
+      <div id="question-text">Loading question...</div>
+      <div id="options-grid">
+        <button class="option-btn" id="opt0"></button>
+        <button class="option-btn" id="opt1"></button>
+        <button class="option-btn" id="opt2"></button>
+        <button class="option-btn" id="opt3"></button>
+      </div>
+      <div id="feedback"></div>
+      <button id="next-btn" disabled>Next Question →</button>
+    </div>
+
+    <!-- Results screen -->
+    <div id="results-screen">
+      <h2>Game Over!</h2>
+      <div id="final-score"></div>
+      <div id="result-message"></div>
+      <button id="restart-btn" onclick="startGame()">Play Again</button>
+    </div>
+
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "What is the largest planet in our solar system?",
+        options: ["Saturn", "Jupiter", "Neptune", "Uranus"],
+        answer: 1
+      },
+      {
+        q: "How long does it take light from the Sun to reach Earth?",
+        options: ["8 seconds", "8 minutes", "8 hours", "8 days"],
+        answer: 1
+      },
+      {
+        q: "Which space agency landed humans on the Moon first?",
+        options: ["ESA", "Roscosmos", "NASA", "JAXA"],
+        answer: 2
+      },
+      {
+        q: "What is the name of the first artificial satellite launched into space?",
+        options: ["Explorer 1", "Vostok 1", "Sputnik 1", "Luna 1"],
+        answer: 2
+      },
+      {
+        q: "Which planet is known as the Red Planet?",
+        options: ["Venus", "Mars", "Mercury", "Pluto"],
+        answer: 1
+      },
+      {
+        q: "What is the approximate age of the universe?",
+        options: ["4.5 billion years", "10 billion years", "13.8 billion years", "20 billion years"],
+        answer: 2
+      },
+      {
+        q: "Who was the first human to travel to space?",
+        options: ["Neil Armstrong", "Buzz Aldrin", "Alan Shepard", "Yuri Gagarin"],
+        answer: 3
+      },
+      {
+        q: "What is the name of the galaxy that contains our solar system?",
+        options: ["Andromeda", "Triangulum", "The Milky Way", "Centaurus A"],
+        answer: 2
+      },
+      {
+        q: "Which planet has the most moons?",
+        options: ["Jupiter", "Saturn", "Uranus", "Neptune"],
+        answer: 1
+      },
+      {
+        q: "What force keeps planets in orbit around the Sun?",
+        options: ["Magnetism", "Nuclear force", "Gravity", "Friction"],
+        answer: 2
+      }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    let answered = false;
+    let shuffled = [];
+
+    function shuffle(arr) {
+      return [...arr].sort(() => Math.random() - 0.5);
+    }
+
+    function startGame() {
+      currentQ = 0;
+      score = 0;
+      answered = false;
+      shuffled = shuffle(questions);
+      document.getElementById('results-screen').style.display = 'none';
+      document.getElementById('quiz-screen').style.display = 'block';
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const q = shuffled[currentQ];
+      answered = false;
+
+      document.getElementById('question-number').textContent = 'Question ' + (currentQ + 1);
+      document.getElementById('question-text').textContent = q.q;
+      document.getElementById('q-counter').textContent = currentQ + 1;
+      document.getElementById('current-score').textContent = score;
+      document.getElementById('feedback').textContent = '';
+      document.getElementById('next-btn').disabled = true;
+      document.getElementById('progress-bar').style.width = ((currentQ + 1) / 10 * 100) + '%';
+
+      const opts = document.querySelectorAll('.option-btn');
+      opts.forEach((btn, i) => {
+        btn.textContent = q.options[i];
+        btn.className = 'option-btn';
+        btn.disabled = false;
+        btn.onclick = () => selectAnswer(i);
+      });
+    }
+
+    function selectAnswer(index) {
+      if (answered) return;
+      answered = true;
+
+      const q = shuffled[currentQ];
+      const opts = document.querySelectorAll('.option-btn');
+      opts.forEach(btn => btn.disabled = true);
+
+      if (index === q.answer) {
+        score++;
+        opts[index].classList.add('correct');
+        document.getElementById('feedback').textContent = '✓ Correct!';
+        document.getElementById('feedback').style.color = '#4caf87';
+      } else {
+        opts[index].classList.add('wrong');
+        opts[q.answer].classList.add('correct');
+        document.getElementById('feedback').textContent = '✗ Wrong — the answer was: ' + q.options[q.answer];
+        document.getElementById('feedback').style.color = '#c0504a';
+      }
+
+      document.getElementById('current-score').textContent = score;
+      document.getElementById('next-btn').disabled = false;
+
+      if (currentQ === 9) {
+        document.getElementById('next-btn').textContent = 'See Results';
+      }
+    }
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+      currentQ++;
+      if (currentQ >= 10) {
+        showResults();
+      } else {
+        document.getElementById('next-btn').textContent = 'Next Question →';
+        loadQuestion();
+      }
+    });
+
+    function showResults() {
+      document.getElementById('quiz-screen').style.display = 'none';
+      document.getElementById('results-screen').style.display = 'block';
+      document.getElementById('final-score').textContent = score + ' / 10';
+
+      let msg = '';
+      if (score === 10) msg = 'Perfect score! You are a space genius.';
+      else if (score >= 7) msg = 'Great job! You really know your cosmos.';
+      else if (score >= 4) msg = 'Not bad! A bit more stargazing and you\'ll ace it.';
+      else msg = 'Keep exploring — the universe has more to teach you!';
+
+      document.getElementById('result-message').textContent = msg;
+    }
+
+    startGame();
+  </script>
+
+</body>
+</html>

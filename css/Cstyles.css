@@ -1,0 +1,252 @@
+/* ============================================
+   style.css — My Favorite Movies scratch page
+   ============================================ */
+
+/* 1. BODY — dark cinema background + base font */
+body {
+  background-color: #111111;
+  color: #e8e0d0;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. TOP NAVIGATION */
+#topnav {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+  padding: 12px 28px;
+  display: flex;
+  gap: 24px;
+}
+
+#topnav a {
+  color: #c9a84c;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+#topnav a:hover {
+  color: #f0d080;
+  text-decoration: underline;
+}
+
+/* 3. HEADER DIV */
+#header {
+  background-color: #0e0e0e;
+  text-align: center;
+  padding: 70px 20px 50px;
+  border-bottom: 2px solid #c9a84c;
+}
+
+#header h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3rem;
+  color: #f5f0e8;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+#header .subtitle {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.05rem;
+  color: #c9a84c;
+  font-style: italic;
+}
+
+/* 4. INTRO DIV */
+#intro {
+  max-width: 820px;
+  margin: 48px auto 0;
+  padding: 0 28px;
+}
+
+#intro h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #c9a84c;
+  border-bottom: 1px solid #2e2e2e;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+#intro p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #cfc8b8;
+}
+
+/* 5. CONTENT SECTION DIV */
+#content-section {
+  max-width: 820px;
+  margin: 40px auto;
+  padding: 0 28px;
+}
+
+#content-section h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #c9a84c;
+  border-bottom: 1px solid #2e2e2e;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+#content-section ol {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  color: #e8e0d0;
+  padding-left: 20px;
+  line-height: 2;
+}
+
+#content-section ol > li {
+  margin-bottom: 18px;
+  color: #f5f0e8;
+}
+
+#content-section ol > li strong {
+  color: #f0d080;
+  font-size: 1.05rem;
+}
+
+#content-section ul {
+  color: #a89878;
+  font-weight: normal;
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+#content-section ul li {
+  font-size: 0.93rem;
+  line-height: 1.9;
+}
+
+/* 6. IMAGE SECTION DIV */
+#image-section {
+  max-width: 820px;
+  margin: 0 auto 40px;
+  padding: 0 28px;
+}
+
+#image-section h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #c9a84c;
+  border-bottom: 1px solid #2e2e2e;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+#image-section p {
+  font-family: 'Arial', sans-serif;
+  color: #cfc8b8;
+  margin-bottom: 16px;
+}
+
+#image-section img {
+  width: 100%;
+  max-width: 820px;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 6px;
+  border: 1px solid #2e2e2e;
+  filter: grayscale(20%);
+}
+
+p.img-caption {
+  font-family: 'Arial', sans-serif;
+  font-size: 0.82rem;
+  color: #6b6355;
+  text-align: center;
+  font-style: italic;
+}
+
+/* 7. VIDEO SECTION DIV */
+#video-section {
+  max-width: 820px;
+  margin: 0 auto 40px;
+  padding: 0 28px;
+}
+
+#video-section h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #c9a84c;
+  border-bottom: 1px solid #2e2e2e;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+#video-section p {
+  font-family: 'Arial', sans-serif;
+  color: #cfc8b8;
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #2e2e2e;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 8. TABLEAU SECTION DIV */
+#tableau-section {
+  max-width: 820px;
+  margin: 0 auto 40px;
+  padding: 0 28px;
+}
+
+#tableau-section h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #c9a84c;
+  border-bottom: 1px solid #2e2e2e;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+#tableau-section p {
+  font-family: 'Arial', sans-serif;
+  color: #cfc8b8;
+  margin-bottom: 16px;
+}
+
+/* 9. FOOTER DIV */
+#footer {
+  background-color: #0e0e0e;
+  border-top: 1px solid #2e2e2e;
+  text-align: center;
+  padding: 28px;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.88rem;
+  color: #6b6355;
+  font-style: italic;
+}
+
+#footer a {
+  color: #c9a84c;
+  text-decoration: none;
+  font-style: normal;
+}
+
+#footer a:hover {
+  color: #f0d080;
+  text-decoration: underline;
+}
